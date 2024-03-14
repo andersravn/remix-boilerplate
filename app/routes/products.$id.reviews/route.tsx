@@ -12,7 +12,7 @@ interface IReview {
 }
 
 export async function loader({ params }: LoaderFunctionArgs) {
-    const reviewsPromise: Promise<IReview[]> = new Promise((resolve) => {
+    const reviewsPromise: IReview[] = await new Promise((resolve) => {
         setTimeout(() => resolve([
             {
                 'description': 'Great product, very durable and reliable. I use it every day!',
@@ -39,7 +39,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
     // throw new Response('Not Found', { status: 404 });
 
-    return defer({ productId: params.id, reviews: reviewsPromise });
+    return json({ productId: params.id, reviews: reviewsPromise });
 }
 
 export default function Reviews() {
@@ -51,7 +51,7 @@ export default function Reviews() {
                 <Await resolve={reviews}>
                     Done loading
                     <pre>{JSON.stringify(reviews)}</pre>
-                    {/* {reviews.map((review: IReview) => (
+                    {reviews.map((review: IReview) => (
                         <div className="border rounded-md p-4" key={review.name}>
                             <div className="text-10">{review.name}</div>
                             <div className="flex items-center">
@@ -66,7 +66,7 @@ export default function Reviews() {
                             </div>
                             <div>{review.description}</div>
                         </div>
-                    ))} */}
+                    ))}
                 </Await>
             </Suspense>
         </div>

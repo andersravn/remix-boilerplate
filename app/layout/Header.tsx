@@ -1,5 +1,3 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { BanknotesIcon, ShoppingBagIcon } from '@heroicons/react/16/solid';
 import { useNavigation } from '@remix-run/react';
 
 export default function Header() {
@@ -29,7 +27,7 @@ export default function Header() {
                         Ny kunde?
                     </a>
 
-                    <a className="lg:ml-6 text-gray-400 hover:text-gray-500" href="/">
+                    {/* <a className="lg:ml-6 text-gray-400 hover:text-gray-500" href="/">
                         <span className="sr-only">Search</span>
                         <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6"/>
                     </a>
@@ -47,7 +45,7 @@ export default function Header() {
                         </span>
 
                         <span className="sr-only">items in cart, view bag</span>
-                    </a>
+                    </a> */}
                 </div>
             </nav>
         </header>
