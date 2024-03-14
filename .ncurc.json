@@ -1,0 +1,6 @@
+{
+    "reject": [
+        "eslint-plugin-array-func",
+        "isbot"
+    ]
+}
