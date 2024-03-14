@@ -2,8 +2,8 @@ import { json, Link, Outlet, useLoaderData } from '@remix-run/react';
 import type { LoaderFunctionArgs, MetaFunction } from '@vercel/remix';
 import Reviews from './Reviews';
 
-export const meta: MetaFunction = () => {
-    return [{ title: 'Product' }, { content: 'Product', name: 'description' }];
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+    return [{ title: data.title }, { content: 'Product', name: 'description' }];
 };
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -24,7 +24,7 @@ export default function Product() {
 
                 {/* Image */}
                 <div className="mx-auto mt-6 max-w-lg sm:px-6 lg:px-8 col-span-8">
-                    <img alt={product.name} src={product.image}/>
+                    <img alt={product.title} src={product.image}/>
                 </div>
 
                 {/* Product info */}
