@@ -1,12 +1,13 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { BanknotesIcon, ShoppingBagIcon } from '@heroicons/react/16/solid';
+import { useNavigation } from '@remix-run/react';
 
 export default function Header() {
+    const navigation = useNavigation();
+
     return (
         <header className="relative bg-white">
-            <section className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-            Gratis standardlevering ved køb for minimum 299 kr.*
-            </section>
+            <div className={`${navigation.state === 'loading' && 'bg-purple-700 animate-pulse'} h-2 w-full`}/>
 
             <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-b border-gray-200 flex h-16">
                 <a className="flex items-center gap-2" href="/">

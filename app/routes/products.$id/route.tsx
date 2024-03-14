@@ -65,7 +65,7 @@ function Breadcrumb(props: any) {
                 <li>
                     <div className="flex items-center">
                         <Link className="mr-2 text-sm font-medium text-gray-900" to={`/categories/${props.product.category}`}>
-                            {props.product.category}
+                            {props.product.category?.[0].toUpperCase()}{props.product.category?.slice(1)}
                         </Link>
                         <svg aria-hidden="true"
                             className="h-5 w-4 text-gray-300"
