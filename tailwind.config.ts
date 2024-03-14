@@ -1,9 +1,9 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 export default {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+    content: ['./app/**/*.{js,jsx,ts,tsx}'],
+    plugins: [require('@tailwindcss/aspect-ratio')],
+    theme: {
+        extend: {}
+    }
 } satisfies Config;

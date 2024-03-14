@@ -1,42 +1,38 @@
-import type { MetaFunction } from "@vercel/remix";
+import type { MetaFunction } from '@vercel/remix';
 
 export const meta: MetaFunction = () => {
-  return [{ title: "Product" }, { name: "description", content: "Product" }];
+    return [{ title: 'Product' }, { content: 'Product', name: 'description' }];
 };
 
 export function loader() {
-  return { productId: "123" };
+    return { productId: '123' };
 }
 
 export default function Product() {
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
+    return (
+        <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
+            <h1>Welcome to Remix</h1>
+            <ul>
+                <li>
+                    <a href="https://remix.run/tutorials/blog"
+                        rel="noreferrer"
+                        target="_blank">
             15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
+                    </a>
+                </li>
+                <li>
+                    <a href="https://remix.run/tutorials/jokes"
+                        rel="noreferrer"
+                        target="_blank">
             Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://remix.run/docs" rel="noreferrer" target="_blank">
             Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
+                    </a>
+                </li>
+            </ul>
+        </div>
+    );
 }

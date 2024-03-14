@@ -1,40 +1,65 @@
 {
-  "name": "my-remix-app",
-  "private": true,
-  "sideEffects": false,
-  "type": "module",
-  "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
-    "typecheck": "tsc"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.18",
-    "@heroicons/react": "^2.1.1",
-    "@remix-run/node": "^2.8.0",
-    "@remix-run/react": "^2.8.0",
-    "@remix-run/server-runtime": "^2.8.0",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@vercel/analytics": "^1.2.2",
-    "@vercel/remix": "^2.8.0",
-    "autoprefixer": "^10.4.18",
-    "isbot": "^4",
-    "postcss": "^8.4.35",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@remix-run/dev": "^2.8.0",
-    "@remix-run/eslint-config": "^2.8.0",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "eslint": "^8.38.0",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.1.6",
-    "vite": "^5.1.0",
-    "vite-tsconfig-paths": "^4.2.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+    "name": "my-remix-app",
+    "private": true,
+    "sideEffects": false,
+    "type": "module",
+    "scripts": {
+        "build": "remix vite:build",
+        "dev": "remix vite:dev",
+        "typecheck": "tsc",
+        "lint": "eslint --ext .ts,.tsx .",
+        "lint:fix": "eslint --fix --ext .ts,.tsx .",
+        "lint:styles": "stylelint **/*.css",
+        "lint:styles:fix": "stylelint **/*.css --fix"
+    },
+    "dependencies": {
+        "@headlessui/react": "^1.7.18",
+        "@heroicons/react": "^2.1.1",
+        "@remix-run/node": "^2.8.1",
+        "@remix-run/react": "^2.8.1",
+        "@remix-run/server-runtime": "^2.8.1",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@vercel/analytics": "^1.2.2",
+        "@vercel/remix": "^2.8.1",
+        "autoprefixer": "^10.4.18",
+        "clsx": "^2.1.0",
+        "isbot": "^4",
+        "postcss": "^8.4.35",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@remix-run/dev": "^2.8.1",
+        "@remix-run/eslint-config": "^2.8.1",
+        "@stylistic/eslint-plugin": "^1.6.3",
+        "@stylistic/eslint-plugin-jsx": "^1.6.3",
+        "@stylistic/stylelint-plugin": "^2.1.0",
+        "@types/react": "^18.2.65",
+        "@types/react-dom": "^18.2.22",
+        "@typescript-eslint/eslint-plugin": "^7.2.0",
+        "@typescript-eslint/parser": "^7.2.0",
+        "eslint": "^8.57.0",
+        "eslint-import-resolver-typescript": "^3.6.1",
+        "eslint-plugin-array-func": "^4.0.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-jsx-a11y": "^6.8.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-react": "^7.34.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-regexp": "^2.3.0",
+        "eslint-plugin-sonarjs": "^0.24.0",
+        "eslint-plugin-sort-keys-fix": "^1.1.2",
+        "eslint-plugin-you-dont-need-lodash-underscore": "^6.13.0",
+        "stylelint": "^16.2.1",
+        "stylelint-config-recommended": "^14.0.0",
+        "stylelint-config-standard": "^36.0.0",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5.4.2",
+        "vite": "^5.1.6",
+        "vite-tsconfig-paths": "^4.3.2"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
 }
