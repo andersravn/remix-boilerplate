@@ -1,7 +1,6 @@
-import { json, Link, useLoaderData } from '@remix-run/react';
+import { json, Link, Outlet, useLoaderData } from '@remix-run/react';
 import type { LoaderFunctionArgs, MetaFunction } from '@vercel/remix';
-import { StarIcon } from '@heroicons/react/20/solid';
-import clsx from 'clsx';
+import Reviews from './Reviews';
 
 export const meta: MetaFunction = () => {
     return [{ title: 'Product' }, { content: 'Product', name: 'description' }];
@@ -9,6 +8,7 @@ export const meta: MetaFunction = () => {
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const response = await fetch(`https://fakestoreapi.com/products/${params.id}`);
+
     const product = await response.json();
 
     return json(product);
@@ -18,7 +18,7 @@ export default function Product() {
     const product = useLoaderData<typeof loader>();
 
     return (
-        <div className="bg-white pt-6" style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
+        <div className="mx-auto max-w-7xl my-8 lg:my-10 bg-white pt-6" style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
             <Breadcrumb product={product}/>
             <div className="pt-10 grid grid-cols-12">
 
@@ -37,7 +37,8 @@ export default function Product() {
                     <div className="mt-10 lg:row-span-3">
                         <h2 className="sr-only">Product information</h2>
                         <p className="text-3xl tracking-tight text-gray-900">€{product.price}</p>
-                        <Reviews rating={product.rating}/>
+                        <Reviews/>
+                        <Outlet/>
                     </div>
 
                     <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -54,30 +55,6 @@ export default function Product() {
             </div>
         </div>
 
-    );
-}
-
-function Reviews(props: any) {
-    return (
-        <div className="mt-20">
-            <h3 className="sr-only">Reviews</h3>
-            <div className="flex items-center">
-                <div className="flex items-center">
-                    {[0, 1, 2, 3, 4].map((rate) => (
-                        <StarIcon aria-hidden="true"
-                            className={clsx(
-                                props.rating.rate > rate ? 'text-gray-900' : 'text-gray-200',
-                                'h-5 w-5 flex-shrink-0'
-                            )}
-                            key={rate}/>
-                    ))}
-                </div>
-                <p className="sr-only">{props.rating.rate} out of 5 stars</p>
-                <a className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500" href="hej">
-                    {props.rating.count} reviews
-                </a>
-            </div>
-        </div>
     );
 }
 
